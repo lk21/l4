@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+    <title>search_noresult</title>
+</head>
+<body text="blue">
+    <h1 align="center">图书数据库</h1>
+    <table border=1>
+	<tr>
+		<td>ISBN</td>
+		<td>书名</td>
+		<td>作者</td>
+		<td>出版社</td>
+		<td>出版日期</td>
+		<td>价格</td>
+		<td>作者年龄</td>
+		<td>作者国籍</td>
+    	</tr>
+    	{% for book in books %}
+		<tr> 
+			<td>{{book.isbn}}</td>
+			<td><a href="/bookmessage/?ISBN={{book.isbn}}">{{book.title}}</a></td>
+			<td>{{book.authorID.name}}</td>
+			<td>{{book.publisher}}</td>
+			<td>{{book.publishDate}}</td>
+			<td>{{book.price}}</td>
+			<td>{{book.authorID.age}}</td>
+			<td>{{book.authorID.country}}</td>
+    {% endfor %}
+    </table>
+    <p><a href="/search/">返回上一级</a> </p>
+    <p><a href="/main/">返回主界面</a> </p>
+</body>
+</html>
